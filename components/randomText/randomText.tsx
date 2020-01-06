@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styles from "./randomText.module.scss";
 
+type RandomTextProps = { children: React.ReactNode };
+
 class RandomText extends Component {
   public state: {
     text: string[];
@@ -8,9 +10,8 @@ class RandomText extends Component {
   };
   private interval: NodeJS.Timeout;
 
-  constructor() {
-    // No props
-    super({});
+  constructor(props: RandomTextProps) {
+    super(props);
 
     this.state = {
       text: [],

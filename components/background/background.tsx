@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styles from "./background.module.scss";
 
+type BackgroundProps = { children: React.ReactNode };
+
 class Background extends Component {
   public state: {
     flip: boolean;
@@ -9,8 +11,8 @@ class Background extends Component {
   private leftRef: React.RefObject<HTMLDivElement>;
   private rightRef: React.RefObject<HTMLDivElement>;
 
-  public constructor() {
-    super({});
+  public constructor(props: BackgroundProps) {
+    super(props);
 
     this.leftRef = React.createRef<HTMLDivElement>();
     this.rightRef = React.createRef<HTMLDivElement>();
