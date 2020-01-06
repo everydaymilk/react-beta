@@ -39,8 +39,8 @@ class Background extends Component {
 
   private onMouseMove(event: MouseEvent) {
     let x = event.clientX;
-    this.rightRef.current.style.left = "" + x + "px";
-    this.rightRef.current.style.width = "calc(100% - " + x + "px)";
+    this.rightRef.current!.style.left = "" + x + "px";
+    this.rightRef.current!.style.width = "calc(100% - " + x + "px)";
   }
 
   public render() {

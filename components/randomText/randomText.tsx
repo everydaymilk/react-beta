@@ -8,7 +8,7 @@ class RandomText extends Component {
     text: string[];
     flip: boolean;
   };
-  private interval: NodeJS.Timeout;
+  private interval?: NodeJS.Timeout;
 
   constructor(props: RandomTextProps) {
     super(props);
@@ -28,7 +28,7 @@ class RandomText extends Component {
   }
 
   public componentWillUnmount() {
-    clearInterval(this.interval);
+    clearInterval(this.interval!);
   }
 
   private updateText() {
