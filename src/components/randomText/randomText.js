@@ -29,7 +29,7 @@ class RandomText extends Component {
     const children = [];
     for (var i = 0; i < this.state.text.length; i++) {
       let x = "";
-      if (i % 2 == 0) {
+      if (i % 2 === 0) {
         x = styles.white;
       } else {
         x = styles.black;
