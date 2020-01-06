@@ -2,10 +2,16 @@ import React, { Component } from "react";
 import styles from "./background.module.scss";
 
 class Background extends Component {
+  leftRef: React.RefObject<HTMLDivElement>;
+  rightRef: React.RefObject<HTMLDivElement>;
+  state: {
+    flip: boolean;
+  };
+
   constructor(props) {
     super(props);
-    this.leftRef = React.createRef();
-    this.rightRef = React.createRef();
+    this.leftRef = React.createRef<HTMLDivElement>();
+    this.rightRef = React.createRef<HTMLDivElement>();
 
     this.state = { flip: true };
 
@@ -35,7 +41,7 @@ class Background extends Component {
 
   render() {
     return (
-      <div className={styles.background}>
+      <div>
         <div
           className={
             this.state.flip ? styles.backgroundLeft : styles.backgroundRight

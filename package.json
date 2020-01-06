@@ -32,5 +32,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/node": "^13.1.4",
+    "@types/react": "^16.9.17",
+    "typescript": "^3.7.4",
+    "typescript-plugin-css-modules": "^2.1.2"
   }
 }

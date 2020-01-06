@@ -2,8 +2,14 @@ import React, { Component } from "react";
 import styles from "./randomText.module.scss";
 
 class RandomText extends Component {
-  constructor(props) {
-    super(props);
+  state: {
+    text: string[];
+    flip: boolean;
+  };
+  interval: NodeJS.Timeout;
+
+  constructor() {
+    super({});
 
     this.state = {
       text: [],
@@ -19,10 +25,14 @@ class RandomText extends Component {
     }, 50);
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   updateText() {
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     const r = characters.charAt(Math.floor(Math.random() * characters.length));
-    this.setState({ text: this.state.text.concat(r), flip: !this.flip });
+    this.setState({ text: this.state.text.concat(r), flip: !this.state.flip });
   }
 
   render() {
