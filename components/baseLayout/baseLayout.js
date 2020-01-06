@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Background from "../background/background";
-import styles from "./baseLayout.module.css";
+import styles from "./baseLayout.module.scss";
 
 class BaseLayout extends Component {
   render() {
