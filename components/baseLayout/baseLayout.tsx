@@ -3,7 +3,7 @@ import Background from "../background/background";
 import styles from "./baseLayout.module.scss";
 
 class BaseLayout extends Component {
-  render() {
+  public render() {
     return (
       <div className={styles.main}>
         <div className={styles.background}>

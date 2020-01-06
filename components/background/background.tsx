@@ -2,44 +2,46 @@ import React, { Component } from "react";
 import styles from "./background.module.scss";
 
 class Background extends Component {
-  leftRef: React.RefObject<HTMLDivElement>;
-  rightRef: React.RefObject<HTMLDivElement>;
-  state: {
+  public state: {
     flip: boolean;
   };
 
-  constructor(props) {
-    super(props);
+  private leftRef: React.RefObject<HTMLDivElement>;
+  private rightRef: React.RefObject<HTMLDivElement>;
+
+  public constructor() {
+    super({});
+
     this.leftRef = React.createRef<HTMLDivElement>();
     this.rightRef = React.createRef<HTMLDivElement>();
 
     this.state = { flip: true };
 
-    this._onMouseMove = this._onMouseMove.bind(this);
-    this._onMouseClick = this._onMouseClick.bind(this);
+    this.onMouseMove = this.onMouseMove.bind(this);
+    this.onMouseClick = this.onMouseClick.bind(this);
   }
 
-  componentDidMount() {
-    window.addEventListener("mousemove", this._onMouseMove);
-    window.addEventListener("click", this._onMouseClick);
+  public componentDidMount() {
+    window.addEventListener("mousemove", this.onMouseMove);
+    window.addEventListener("click", this.onMouseClick);
   }
 
-  componentWillUnmount() {
-    window.removeEventListener("mousemove", this._onMouseMove);
-    window.removeEventListener("click", this._onMouseClick);
+  public componentWillUnmount() {
+    window.removeEventListener("mousemove", this.onMouseMove);
+    window.removeEventListener("click", this.onMouseClick);
   }
 
-  _onMouseClick(event) {
+  private onMouseClick(event: MouseEvent) {
     this.setState({ flip: !this.state.flip });
   }
 
-  _onMouseMove(event) {
+  private onMouseMove(event: MouseEvent) {
     let x = event.clientX;
     this.rightRef.current.style.left = "" + x + "px";
     this.rightRef.current.style.width = "calc(100% - " + x + "px)";
   }
 
-  render() {
+  public render() {
     return (
       <div>
         <div
